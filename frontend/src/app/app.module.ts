@@ -5,9 +5,16 @@ import { MaterialModule} from '../app/modules/material/material.module'
 
 import { AppComponent } from './app.component';
 
+import { ProductsComponent } from './shared/components/product/products/products.component';
+import { AppbarComponent } from './shared/components/appbar/appbar.component';
+import { FooterComponent } from './shared/components/footer/footer.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductsComponent,
+    AppbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

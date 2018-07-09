@@ -7,12 +7,5 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  wt;
-  private sizeMenu:number=1100;
-
-  @HostListener('window:resize', ['$event'])
-  sizeWindow(event) {
-    this.wt = event.target.innerWidth;
-    this.sizeMenu = this.wt;
-  }
+ 
 }

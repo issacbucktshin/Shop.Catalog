@@ -1,22 +1,2 @@
-<div id="menu">
-  <div id="menuContainer">
-      <div *ngIf="sizeMenu>600" dir='rtl'>
-          <button mat-button >ראשי</button>
-          <button mat-button >קטלוג</button>
-          <button mat-button >מי אנחנו</button>
-          <button mat-button >צור קשר</button>
-      </div>
-      
-     
-      <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="sizeMenu < 600" dir='rtl'>
-        <mat-icon>more_vert</mat-icon>
-      </button>
-
-      <mat-menu #menu="matMenu" >
-          <button mat-menu-item >ראשי</button>
-          <button mat-menu-item >קטלוג</button>
-          <button mat-menu-item >מי אנחנו</button>
-          <button mat-menu-item >צור קשר</button>
-        </mat-menu>
-  </div>
-</div>
+<app-appbar></app-appbar>
+<app-footer></app-footer>

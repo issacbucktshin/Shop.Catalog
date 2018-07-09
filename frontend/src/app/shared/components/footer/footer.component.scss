@@ -1,0 +1,20 @@
+.footer{
+    font-size: 20px;
+    background: #3f51b5;
+    color: #fff;
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    direction: rtl;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    position: fixed
+}
+    .footer-content{
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        
+    }

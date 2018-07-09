@@ -1,0 +1,18 @@
+html,
+body,
+ul,
+ol {
+  margin:  0;
+	padding: 0;
+	direction: rtl  !important;
+}
+
+body, div, span, input, select, textarea, h1{
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	direction: rtl !important;
+}

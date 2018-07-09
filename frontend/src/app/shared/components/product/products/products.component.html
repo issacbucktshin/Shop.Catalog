@@ -1,3 +1,23 @@
-<p>
-  products works!
-</p>
+<div id="productsContainer">
+  <div id="productsSearch">
+    productsSearch
+  </div>
+  <div id="productsRefiner">סינון לפי קטגוריה
+    <mat-selection-list #shoes direction="rtl">
+      <mat-list-option *ngFor="let shoe of typesOfShoes">
+        {{shoe}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <div id="productsList">
+    <mat-list>
+        <mat-list-item>Item 1</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 1</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 1</mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</div>

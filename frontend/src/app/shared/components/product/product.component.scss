@@ -1,0 +1,15 @@
+#productContainer{
+    max-width: 250px;
+    max-height: 100px;
+
+    #productImageContainer{
+     padding: 2px;
+    }
+    .product-header {
+        text-align: center;
+        display: block;
+    }
+    .product-content{
+        text-align: center;
+    }
+}

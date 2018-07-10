@@ -13,6 +13,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CarouselComponent } from './shared/components/carousel/carousel.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
+import { FilterComponent } from './shared/components/filter/filter.component';
+import { ProductComponent } from './shared/components/product/product.component';
+import { ProductModalComponent } from './shared/components/product/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
     FooterComponent,
     HomeComponent,
     CarouselComponent,
-    CatalogComponent
+    CatalogComponent,
+    FilterComponent,
+    ProductComponent,
+    ProductModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,9 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
     RoutingModule,
     HttpClientModule,
     NgbModule.forRoot()
+  ], 
+  entryComponents: [
+    ProductModalComponent,
   ],
   exports:[MaterialModule],
   providers: [],

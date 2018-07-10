@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';;
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../../pages/home/home.component'
 import { CatalogComponent } from '../../pages/catalog/catalog.component';
+import { ProductComponent } from '../../shared/components/product/product.component'
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
       path: 'catalog',
       component: CatalogComponent,
   },
+  {
+      path: 'product',
+      component: ProductComponent,
+  }
 ];
 @NgModule({
   imports: [

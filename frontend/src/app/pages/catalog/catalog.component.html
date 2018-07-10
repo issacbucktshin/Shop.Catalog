@@ -1,1 +1,16 @@
-<app-products></app-products>
+<div id="catalogContainer">
+    <div id="catalogSearch">
+    productsSearch
+    </div>
+    <div id="catalogFilter">
+         <app-filter title='סינון לפי קטגוריה' [filterItems]="categories"></app-filter >
+    </div>
+    <div id="catalogList">
+        <mat-list>
+            <mat-list-item>
+                <app-products></app-products>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </div>
+</div>

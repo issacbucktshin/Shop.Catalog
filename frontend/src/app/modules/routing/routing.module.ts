@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';;
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../../pages/home/home.component'
 import { CatalogComponent } from '../../pages/catalog/catalog.component';
-import { ProductComponent } from '../../shared/components/product/product.component'
+import { ContactusComponent} from '../../pages/contactus/contactus.component'
 
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
       component: CatalogComponent,
   },
   {
-      path: 'product',
-      component: ProductComponent,
+      path: 'contactus',
+      component: ContactusComponent,
   }
 ];
 @NgModule({

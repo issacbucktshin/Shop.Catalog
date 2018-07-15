@@ -1,8 +1,12 @@
 <div id="filterContainer">
-  <span>{{title}}</span>
-  <mat-selection-list #shoes direction="rtl">
-    <mat-list-option *ngFor="let item of filterItems">
-      {{item}}
-    </mat-list-option>
-  </mat-selection-list>
+  <mat-card>
+      <mat-card-content>
+          <span>{{title}}</span>
+        <mat-selection-list  [(ngModel)]="selectedItems" (ngModelChange)="selectionChange($event)" #items direction="rtl">
+          <mat-list-option [value]="item" *ngFor="let item of filterItems">
+        {{item.name}}
+      </mat-list-option>
+   </mat-selection-list>
+  </mat-card-content>
+ </mat-card> 
 </div>

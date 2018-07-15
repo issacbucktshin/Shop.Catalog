@@ -5,7 +5,7 @@ import { RoutingModule } from './modules/routing/routing.module'
 import { MaterialModule} from '../app/modules/material/material.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './shared/components/product/products/products.component';
 import { AppbarComponent } from './shared/components/appbar/appbar.component';
@@ -16,6 +16,11 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { FilterComponent } from './shared/components/filter/filter.component';
 import { ProductComponent } from './shared/components/product/product.component';
 import { ProductModalComponent } from './shared/components/product/product-modal/product-modal.component';
+import { FilterPipe } from './shared/pipes/filters/filter.pipe';
+import { CategoryFilterPipe } from './shared/pipes/product/category-filter.pipe';
+import { SliderComponent } from './shared/components/slider/slider.component';
+import { PriceFilterPipe } from './shared/pipes/product/price-filter.pipe';
+import { ContactusComponent } from './pages/contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { ProductModalComponent } from './shared/components/product/product-modal
     CatalogComponent,
     FilterComponent,
     ProductComponent,
-    ProductModalComponent
+    ProductModalComponent,
+    FilterPipe,
+    CategoryFilterPipe,
+    SliderComponent,
+    PriceFilterPipe,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,8 @@ import { ProductModalComponent } from './shared/components/product/product-modal
     MaterialModule,
     RoutingModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule
   ], 
   entryComponents: [
     ProductModalComponent,

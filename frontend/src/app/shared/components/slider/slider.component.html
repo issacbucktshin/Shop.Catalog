@@ -1,0 +1,13 @@
+<div id="sliderContainer">
+    <mat-card>
+        <mat-card-content>
+            <div id="sliderTitle">
+                <span>{{title}}</span>
+            </div>
+            <mat-slider class="margin"
+                [max]="maxprice"
+                [thumbLabel]="true"
+                (change)="sliderValChanged($event)"></mat-slider>
+        </mat-card-content>   
+    </mat-card>
+</div>

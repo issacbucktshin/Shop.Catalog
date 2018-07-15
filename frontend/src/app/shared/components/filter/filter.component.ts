@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Category } from '../../models/category'
 
 @Component({
   selector: 'app-filter',
@@ -11,11 +12,20 @@ export class FilterComponent implements OnInit {
   title:string;
 
   @Input()
-  filterItems: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  filterItems: any[] = [];
+
+  selectedItems:any[];
+
+  @Output()
+  selectedItemsChanged = new EventEmitter<any[]>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  selectionChange(selection){
+    debugger
+    this.selectedItemsChanged.emit(selection);
+  }
 }

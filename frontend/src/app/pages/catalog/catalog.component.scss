@@ -8,7 +8,7 @@
     font-size: 0px;
 
     #catalogSearch{
-        background-color: red
+        background-color: white
     }
 
     #catalogFilter{
@@ -16,8 +16,7 @@
         position: absolute;
         float: right;
         box-sizing: border-box;
-        padding: 40px 0px 40px 40px;
-        box-shadow: inset 0 -7px 20px -7px rgba(0,0,0,0.2);
+        padding: 20px 0px 10px 40px;
         vertical-align: top;
         display: table-cell;
         width: 270px;
@@ -27,7 +26,7 @@
     #catalogList{
         padding: 0;
         margin: 0;
-        background-color: wheat;
+        background-color:white;
         width: 77%;
         float: left;
         top: 0

@@ -1,16 +1,24 @@
 <div id="catalogContainer">
     <div id="catalogSearch">
-    productsSearch
+        <input [(ngModel)]="searchText" placeholder="חפש מוצר">
     </div>
     <div id="catalogFilter">
-         <app-filter title='סינון לפי קטגוריה' [filterItems]="categories"></app-filter >
+         <app-filter 
+            title='סינון לפי קטגוריה' 
+            (selectedItemsChanged)="categoreisSelected($event)" 
+            [filterItems]="categories"></app-filter >
+         <app-slider 
+            title='סינון לפי מחיר' 
+            maxprice={{maxprice}} 
+            (sliderValue)="sliderValChanged($event)"></app-slider>
     </div>
     <div id="catalogList">
         <mat-list>
-            <mat-list-item>
-                <app-products></app-products>
-            </mat-list-item>
-            <mat-divider></mat-divider>
+            <!--<mat-list-item></mat-list-item>-->
+                <app-products 
+                    [products]="products | filter : 'name' : searchText | priceFilter: 'price' : priceFilter | categoryFilter : selectedCategories">
+                </app-products>
+            <!--<mat-divider></mat-divider>-->
         </mat-list>
     </div>
 </div>

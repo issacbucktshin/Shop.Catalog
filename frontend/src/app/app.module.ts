@@ -21,6 +21,8 @@ import { CategoryFilterPipe } from './shared/pipes/product/category-filter.pipe'
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { PriceFilterPipe } from './shared/pipes/product/price-filter.pipe';
 import { ContactusComponent } from './pages/contactus/contactus.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './shared/components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
     CategoryFilterPipe,
     SliderComponent,
     PriceFilterPipe,
-    ContactusComponent
+    ContactusComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,10 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
     RoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCPvwzZK5gwmHecJxr6-OEAVKyi80bLg5s'
+    })
   ], 
   entryComponents: [
     ProductModalComponent,

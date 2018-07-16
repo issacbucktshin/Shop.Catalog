@@ -1,23 +1,46 @@
-.contactus-container {
-    
-    width: 50%;
-    margin: 0 auto;
+@import 'variables';
+
+.map{
+    height: 500px !important;
+    color: white;
+    width: 45%;
+    float: right;
+    margin: 10px;
+
+    @media only screen and (max-width : 500px)
+    {
+        float: none;
+        width: 95%;
+        height: 400px !important;
+    }
+}
+.contactus-form {
+
+    @media only screen and (max-width : 500px)
+    {
+        float: none;
+        width: 95%;
+    }
+
+
+    height: 500px !important;
+    width: 45%;
+    margin: 10px;
+    float: right;
 
     h1{
         text-align: center;
     }
-    .example-container > * {
-        width: 100%;
-        margin: 0 auto;
-      }
-
-    .mat-form-field{
+    
+    .mat-form-field {
         width: 100%;
     }
 
-      .button{
-          float: right;
-      }
-  }
-  
-  
+    .mat-card-actions{
+        padding: 8px 0 !important;
+        margin-bottom: 16px !important;
+    }
+    .button {
+        float: left;
+    }
+}

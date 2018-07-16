@@ -1,27 +1,30 @@
-<div class="contactus-container">
-  <mat-card>
-    <mat-card-header>
+<div class="container">
+  <div class="map">
+      <mat-card><app-map [lat]="32.0903731" [lng]="34.8400775"></app-map></mat-card>
+  </div>
+  <div class="contactus-form">
+      <mat-card>
+        <mat-card-header>
+            <h1>צור קשר</h1>
+        </mat-card-header>
+
+      <mat-card-content>
+        <mat-form-field appearance="legacy" >
+          <input matInput placeholder="שם מלא">
+        </mat-form-field><br>
       
-        <h1>צור קשר</h1>
-      
-    </mat-card-header>
+        <mat-form-field>
+          <input matInput placeholder="טלפון">
+        </mat-form-field><br>
 
-    <mat-card-content>
-    <mat-form-field appearance="legacy" >
-      <input matInput placeholder="שם מלא">
-    </mat-form-field><br>
-  
-    <mat-form-field>
-      <input matInput placeholder="טלפון">
-    </mat-form-field><br>
+        <mat-form-field>
+            <textarea matInput placeholder="הודעה"></textarea>
+        </mat-form-field>
+      </mat-card-content>
 
-    <mat-form-field>
-        <textarea matInput placeholder="הודעה"></textarea>
-    </mat-form-field>
-    </mat-card-content>
-
-    <mat-card-actions>
-      <button class="button" mat-button>שלח</button>
-    </mat-card-actions>
-  </mat-card>
+      <mat-card-actions>
+        <button class="button" mat-button>שלח</button>
+      </mat-card-actions>
+      </mat-card>
+    </div>
   </div>

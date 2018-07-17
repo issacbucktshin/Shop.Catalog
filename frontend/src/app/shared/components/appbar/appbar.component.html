@@ -1,22 +1,26 @@
 <div id="menu">
   <div id="menuContainer">
-      <div *ngIf="sizeMenu>600" dir='rtl'>
-          <a routerLink="">ראשי</a>
-          <a routerLink="/catalog">קטלוג</a>
-          <a routerLink="">מי אנחנו</a>
-          <a routerLink="/contactus">צור קשר</a>
-      </div>
-      
-     
+      <!-- Mobile Menu-->
       <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="sizeMenu < 600" dir='rtl'>
-        <mat-icon>more_vert</mat-icon>
+          <mat-icon>more_vert</mat-icon>
       </button>
-
+  
       <mat-menu #menu="matMenu" >
-          <button mat-menu-item >ראשי</button>
-          <button mat-menu-item >קטלוג</button>
-          <button mat-menu-item >מי אנחנו</button>
-          <button mat-menu-item >צור קשר</button>
-        </mat-menu>
+        <a routerLink="/home" mat-menu-item >ראשי</a>
+        <a routerLink="/catalog" mat-menu-item >קטלוג</a>
+        <a routerLink="/about" mat-menu-item >מי אנחנו</a>
+        <a routerLink="/contact" mat-menu-item >צור קשר</a>
+      </mat-menu>
+
+      <!-- Logo -->
+      <a routerLink="/home"><div id="logo"></div></a>
+      
+      <!-- Web Browser Menu-->
+      <div class="menu-items" *ngIf="sizeMenu>600" dir='rtl'>
+          <a class="menu-items" routerLink="/home" routerLinkActive="nav-active" data-title="ראשי">ראשי</a>
+          <a class="menu-items" routerLink="/catalog" routerLinkActive="nav-active" data-title="קטלוג">קטלוג</a>
+          <a class="menu-items" routerLink="/about" routerLinkActive="nav-active" data-title="מי אנחנו">מי אנחנו</a>
+          <a class="menu-items" routerLink="/contact" routerLinkActive="nav-active" data-title="צור קשר">צור קשר</a>
+      </div>
   </div>
 </div>

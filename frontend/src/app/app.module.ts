@@ -23,6 +23,7 @@ import { PriceFilterPipe } from './shared/pipes/product/price-filter.pipe';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/components/map/map.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MapComponent } from './shared/components/map/map.component';
     SliderComponent,
     PriceFilterPipe,
     ContactusComponent,
-    MapComponent
+    MapComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

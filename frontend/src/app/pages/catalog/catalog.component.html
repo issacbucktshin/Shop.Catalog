@@ -1,24 +1,28 @@
-<div id="catalogContainer">
-    <div id="catalogSearch">
-        <input [(ngModel)]="searchText" placeholder="חפש מוצר">
-    </div>
-    <div id="catalogFilter">
-         <app-filter 
-            title='סינון לפי קטגוריה' 
-            (selectedItemsChanged)="categoreisSelected($event)" 
-            [filterItems]="categories"></app-filter >
-         <app-slider 
-            title='סינון לפי מחיר' 
-            maxprice={{maxprice}} 
-            (sliderValue)="sliderValChanged($event)"></app-slider>
-    </div>
-    <div id="catalogList">
-        <mat-list>
-            <!--<mat-list-item></mat-list-item>-->
-                <app-products 
-                    [products]="products | filter : 'name' : searchText | priceFilter: 'price' : priceFilter | categoryFilter : selectedCategories">
-                </app-products>
-            <!--<mat-divider></mat-divider>-->
-        </mat-list>
-    </div>
+<div id="catalogContainer" class="page container">
+    <aside>
+        <div id="catalogFilter">
+            <app-filter 
+                title='סינון לפי קטגוריה' 
+                (selectedItemsChanged)="categoreisSelected($event)" 
+                [filterItems]="categories"></app-filter >
+            <app-slider 
+                title='סינון לפי מחיר' 
+                maxprice={{maxprice}} 
+                (sliderValue)="sliderValChanged($event)"></app-slider>
+        </div>
+    </aside>
+    <section>
+            <header>
+                <div id="catalogSearch" class="container">
+                    <input [(ngModel)]="searchText" placeholder="חפש מוצר">
+                </div>
+            </header>    
+            <div id="catalogList" class="grid">
+                <mat-list>
+                    <app-products 
+                        [products]="products | filter : 'name' : searchText | priceFilter: 'price' : priceFilter | categoryFilter : selectedCategories">
+                    </app-products>
+                </mat-list>
+            </div>          
+</section>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../shared/models/models';
+import { ProductService } from '../../shared/services/services'
 
 @Component({
   selector: 'app-home',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  
+  title: string = "מבצעים חמים";
 
-  constructor() {}
+  products: Product[] = [];
+  
+  constructor(private productService: ProductService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+     this.products = this.productService.getProducts();
+  }
 }

@@ -1,5 +1,5 @@
-<div id="catalogContainer" class="page container">
-    <aside>
+<div id="catalogContainer" class="page container" appScroll>
+    <aside class="col-sm-3 hidden-xs">
         <div id="catalogFilter">
             <app-filter 
                 title='סינון לפי קטגוריה' 
@@ -12,17 +12,17 @@
         </div>
     </aside>
     <section>
-            <header>
-                <div id="catalogSearch" class="container">
-                    <input [(ngModel)]="searchText" placeholder="חפש מוצר">
-                </div>
-            </header>    
-            <div id="catalogList" class="grid">
-                <mat-list>
-                    <app-products 
-                        [products]="products | filter : 'name' : searchText | priceFilter: 'price' : priceFilter | categoryFilter : selectedCategories">
-                    </app-products>
-                </mat-list>
-            </div>          
-</section>
+        <header>
+            <div id="catalogSearch" class="container">
+                <input [(ngModel)]="searchText" placeholder="חפש מוצר">
+            </div>
+        </header>    
+        <div id="catalogList" class="grid">
+            <mat-list>
+                <app-products 
+                    [products]="products | filter : 'name' : searchText | priceFilter: 'price' : priceFilter | categoryFilter : selectedCategories">
+                </app-products>
+            </mat-list>
+        </div>          
+    </section>
 </div>

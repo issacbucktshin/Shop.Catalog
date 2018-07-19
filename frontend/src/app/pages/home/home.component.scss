@@ -1,0 +1,16 @@
+@import 'variables';
+
+.home-contianer {
+
+    .products-container {
+
+        .home-title {
+            text-align: center;
+            
+            span {
+                color:$home-title-color;
+                font-size: $home-title-size
+            }
+        }
+    }
+}

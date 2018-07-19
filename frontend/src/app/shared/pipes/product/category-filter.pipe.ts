@@ -8,8 +8,7 @@ import { Category, Product} from '../../models/models'
 export class CategoryFilterPipe implements PipeTransform {
   
   transform(products: Product[], categories?:Category[]): any {
-
-    debugger
+    
     let mapCat = categories.map(Category => Category.id);
 
     if(!categories.length) return products;

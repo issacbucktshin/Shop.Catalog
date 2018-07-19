@@ -24,6 +24,8 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/components/map/map.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { ScrollDirective } from './shared/directives/scroll.directive';
+
 
 @NgModule({
   declarations: [
@@ -43,9 +45,11 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
     PriceFilterPipe,
     ContactusComponent,
     MapComponent,
-    AboutusComponent
+    AboutusComponent,
+    ScrollDirective
   ],
   imports: [
+  
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,

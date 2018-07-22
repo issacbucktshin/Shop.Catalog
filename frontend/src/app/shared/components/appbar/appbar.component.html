@@ -1,27 +1,28 @@
 <div id="menu">
-  <div id="menuContainer">
-      
-      <!-- Mobile Menu-->
-      <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="sizeMenu < 600" dir='rtl'>
-          <mat-icon>more_vert</mat-icon>
-      </button>
-
+    <div class="mobile-menu">
+    <!-- Mobile Menu-->
+        <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="sizeMenu < 600" dir='rtl'>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    
         <mat-menu #menu="matMenu" >
             <a routerLink="/home" mat-menu-item >ראשי</a>
             <a routerLink="/catalog" mat-menu-item >קטלוג</a>
             <a routerLink="/about" mat-menu-item >מי אנחנו</a>
             <a routerLink="/contact" mat-menu-item >צור קשר</a>
         </mat-menu>
+    </div>
+    <div id="menuContainer">
+    
+    <!-- Logo -->
+    <a routerLink="/home"><div id="logo"></div></a>
 
-        <!-- Logo -->
-        <a routerLink="/home"><div id="logo"></div></a>
-
-      <!-- Web Browser Menu-->
-      <div class="menu-items" *ngIf="sizeMenu>600" dir='rtl' class="menu">
-          <a class="menu-item" routerLink="/home" routerLinkActive="nav-active" data-title="ראשי">ראשי</a>
-          <a class="menu-item" routerLink="/catalog" routerLinkActive="nav-active" data-title="קטלוג">קטלוג</a>
-          <a class="menu-item" routerLink="/about" routerLinkActive="nav-active" data-title="מי אנחנו">מי אנחנו</a>
-          <a class="menu-item" routerLink="/contact" routerLinkActive="nav-active" data-title="צור קשר">צור קשר</a>
-      </div>
+    <!-- Web Browser Menu-->
+    <div class="menu-items" *ngIf="sizeMenu>600" dir='rtl' class="menu">
+        <a class="menu-item" routerLink="/home" routerLinkActive="nav-active" data-title="ראשי">ראשי</a>
+        <a class="menu-item" routerLink="/catalog" routerLinkActive="nav-active" data-title="קטלוג">קטלוג</a>
+        <a class="menu-item" routerLink="/about" routerLinkActive="nav-active" data-title="מי אנחנו">מי אנחנו</a>
+        <a class="menu-item" routerLink="/contact" routerLinkActive="nav-active" data-title="צור קשר">צור קשר</a>
+    </div>
   </div>
 </div>

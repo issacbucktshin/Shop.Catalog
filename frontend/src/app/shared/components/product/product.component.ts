@@ -11,13 +11,11 @@ import { ProductModalComponent } from './product-modal/product-modal.component'
 export class ProductComponent implements OnInit {
 
   @Input()
-  //product:Product = {id:1, name:'שוקו',description: 'שוקו בשקית 1 ליטר', price: 5.070, img:"https://picsum.photos/100/100/?random"};
   product:Product;
 
   constructor(private modalService: NgbModal) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openProductModal(){
     const modalRef = this.modalService.open(ProductModalComponent);

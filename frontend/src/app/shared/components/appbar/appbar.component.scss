@@ -13,6 +13,9 @@
     text-align: center;
     position: fixed;
     
+    .mobile-menu {
+        float: right;
+    }
     #menuContainer {
         padding: 20px;
         display: inline-flex;

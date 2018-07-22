@@ -25,7 +25,8 @@ import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './shared/components/map/map.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ScrollDirective } from './shared/directives/scroll.directive';
-
+import { NguCarouselModule } from '@ngu/carousel';
+import { ProductsCarouselComponent } from './shared/components/product/products-carousel/products-carousel.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +47,11 @@ import { ScrollDirective } from './shared/directives/scroll.directive';
     ContactusComponent,
     MapComponent,
     AboutusComponent,
-    ScrollDirective
+    ScrollDirective,
+    ProductsCarouselComponent
   ],
   imports: [
-  
+    NguCarouselModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,

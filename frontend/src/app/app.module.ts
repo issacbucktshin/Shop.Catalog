@@ -27,6 +27,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ScrollDirective } from './shared/directives/scroll.directive';
 import { NguCarouselModule } from '@ngu/carousel';
 import { ProductsCarouselComponent } from './shared/components/product/products-carousel/products-carousel.component';
+import { FirebaseModule } from './modules/firebase/firebase.module'
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ProductsCarouselComponent } from './shared/components/product/products-
     ProductsCarouselComponent
   ],
   imports: [
+    FirebaseModule,
     NguCarouselModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -66,7 +68,10 @@ import { ProductsCarouselComponent } from './shared/components/product/products-
   entryComponents: [
     ProductModalComponent,
   ],
-  exports:[MaterialModule],
+  exports:[
+    MaterialModule,
+    FirebaseModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

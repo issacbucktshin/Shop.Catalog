@@ -7,4 +7,5 @@ export class Product {
     price: number;
     img: string;
     category: Category
+    isHot: boolean
 }

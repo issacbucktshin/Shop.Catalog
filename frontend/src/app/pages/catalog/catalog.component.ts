@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../shared/models/product';
 import { Category } from '../../shared/models/category';
 import { ProductService } from '../../shared/services/services'
-
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class CatalogComponent implements OnInit,OnDestroy {
 
   categories: Category[] =[
     {id:1,name:'שוקולד'},
@@ -17,17 +17,26 @@ export class CatalogComponent implements OnInit {
   ]
   
   products: Product[] = [];
-  
   searchText: String;
   selectedCategories : Category [] = [];
   maxprice: number;
   priceFilter:number;
+  private ngUnsubscribe: Subject<void> = new Subject();
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-   this.products = this.productService.getProducts();
+   this.productService.getProducts()
+     .takeUntil(this.ngUnsubscribe)
+     .subscribe((products:Product[]) => {
+       this.products = products;
+     })
    this.maxprice = Math.max.apply(Math,this.products.map(x=>x.price));
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   categoreisSelected(_selectedCategories) {

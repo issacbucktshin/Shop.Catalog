@@ -16,7 +16,7 @@ export class AppbarComponent implements OnInit {
   }
 
   wt;
-  private sizeMenu:number=1100;
+  public sizeMenu:number=1100;
 
   @HostListener('window:resize', ['$event'])
   sizeWindow(event) {

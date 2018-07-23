@@ -1,13 +1,15 @@
 <div class="container carousel-contianer">
+  <div class="carousel-content">
     <ngu-carousel
-    [inputs]="carousel"
-    (carouselLoad)="carousleLoad($event)">
-      <ngu-item NguCarouselItem *ngFor="let product of products">
-        <div class="container">
-          <app-product [product]="product"></app-product>
-        </div>
-      </ngu-item>
-      <button NguCarouselPrev class='leftRs carousel-btn'>&lt;</button>
-      <button NguCarouselNext class='rightRs carousel-btn'>&gt;</button>
-  </ngu-carousel>
+      [inputs]="carousel"
+      (carouselLoad)="carousleLoad($event)">
+        <ngu-item NguCarouselItem *ngFor="let product of products">
+          <div class="container">
+            <app-product [product]="product"></app-product>
+          </div>
+        </ngu-item>
+        <button NguCarouselPrev class='leftRs carousel-btn'>&lt;</button>
+        <button NguCarouselNext class='rightRs carousel-btn'>&gt;</button>
+    </ngu-carousel>
+  </div>
 </div>

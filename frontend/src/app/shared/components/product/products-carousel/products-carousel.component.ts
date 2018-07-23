@@ -22,12 +22,12 @@ export class ProductsCarouselComponent implements OnInit {
 
   ngOnInit() {
     //debugger
-    this.products = this.productService.getProducts();
+    //this.products = this.productService.getProducts();
     this.carousel = {
       grid: {xs: 1, sm: 1, md: 1, lg: 5, all: 0},
       slide: 1,
       speed: 100,
-      interval: 3000,
+      interval: 2000,
       point: {
         visible: true
       },
@@ -40,7 +40,7 @@ export class ProductsCarouselComponent implements OnInit {
   }
 
   carousleLoad(event){
-    this.products = this.productService.getProducts();
+    //this.products = this.productService.getProducts();
   }
 
 }

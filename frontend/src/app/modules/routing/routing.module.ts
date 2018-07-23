@@ -8,6 +8,10 @@ import { AboutusComponent } from '../../pages/aboutus/aboutus.component'
 
 const routes: Routes = [
   {
+      path:'',
+      component: HomeComponent
+  },
+  {
       path: 'home',
       component: HomeComponent,
   },

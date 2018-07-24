@@ -1,26 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { HostListener } from '@angular/core';
+import { MediaMatcher} from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-appbar',
   templateUrl: './appbar.component.html',
-  styleUrls: [
-    './appbar.component.scss'
-  ]
+  styleUrls: [ './appbar.component.scss']
 })
-export class AppbarComponent implements OnInit {
 
-  constructor() { }
+export class AppbarComponent implements OnDestroy {
 
-  ngOnInit() {
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
-  wt;
-  public sizeMenu:number=1100;
-
-  @HostListener('window:resize', ['$event'])
-  sizeWindow(event) {
-    this.wt = event.target.innerWidth;
-    this.sizeMenu = this.wt;
+  
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 450px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { NguCarouselStore, NguCarousel } from '@ngu/carousel';
 import { Product} from '../../../models/models'
 import { ProductService } from '../../../services/services'
@@ -16,13 +16,9 @@ export class ProductsCarouselComponent implements OnInit {
 
   public carousel: NguCarousel;
 
-  constructor(
-    private productService : ProductService
-  ) { }
+  constructor(private productService : ProductService) { }
 
-  ngOnInit() {
-    //debugger
-    //this.products = this.productService.getProducts();
+  ngOnInit() { 
     this.carousel = {
       grid: {xs: 1, sm: 1, md: 1, lg: 5, all: 0},
       slide: 1,
@@ -39,8 +35,5 @@ export class ProductsCarouselComponent implements OnInit {
     }
   }
 
-  carousleLoad(event){
-    //this.products = this.productService.getProducts();
-  }
-
+  carousleLoad(event){}
 }

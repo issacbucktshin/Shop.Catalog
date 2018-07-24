@@ -10,12 +10,14 @@ import {
   MatMenuModule,
   MatButtonModule,
   MatCheckboxModule, 
-  MatInputModule
+  MatInputModule,
+  MatSidenavModule
 } from '@angular/material';
 
 
 @NgModule({
   imports: [
+    MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,
     CommonModule,
@@ -29,6 +31,7 @@ import {
     MatSliderModule
   ],
   exports: [
+    MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,

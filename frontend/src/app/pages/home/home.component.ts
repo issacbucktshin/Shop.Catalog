@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit, OnDestroy {
      this.productService.getProducts(true)
      .takeUntil(this.ngUnsubscribe)
      .subscribe((products:Product[]) => {
-       debugger
        this.hotProducts = products;
      })
   }

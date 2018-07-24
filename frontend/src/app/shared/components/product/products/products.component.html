@@ -1,4 +1,4 @@
-<div id="products" class="container row col-sm-12">
+<div id="products" class="container" [class.products-mobile]="mobileQuery.matches">
     <ul class="ul-products">
         <li *ngFor="let product of products">
             <app-product [product]="product"></app-product>

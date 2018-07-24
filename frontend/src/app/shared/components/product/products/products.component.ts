@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { MediaMatcher} from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, Input } from '@angular/core';
 import { Product } from '../../../models/product'
 
 @Component({
@@ -6,14 +7,22 @@ import { Product } from '../../../models/product'
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnDestroy {
 
   @Input() 
   products: Product[] = [];
 
-  constructor() { }
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
-  ngOnInit() {
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+  
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 450px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
 }

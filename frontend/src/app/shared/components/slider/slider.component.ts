@@ -11,7 +11,7 @@ export class SliderComponent implements OnInit {
   title:string
 
   @Input()
-  maxprice:number = 1000;
+  maxprice:number;
 
   @Output()
   sliderValue = new EventEmitter<number>();

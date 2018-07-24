@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PriceFilterPipe implements PipeTransform {
 
   transform(items: any[], property?:string ,price?: number): any[] {
+    
     if(!items) return [];
     if(!price) return items;
 

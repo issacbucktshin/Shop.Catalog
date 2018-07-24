@@ -9,5 +9,11 @@
         width: $product-size-brwoser;
         text-align: center;
         padding: 10px;
-      }
+    }
+  }
+  .products-mobile {
+      
+    li {
+        width: $product-size-mobile !important;
+    }
   }

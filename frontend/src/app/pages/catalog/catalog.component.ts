@@ -30,8 +30,8 @@ export class CatalogComponent implements OnInit,OnDestroy {
      .takeUntil(this.ngUnsubscribe)
      .subscribe((products:Product[]) => {
        this.products = products;
-     })
-   this.maxprice = Math.max.apply(Math,this.products.map(x=>x.price));
+       this.maxprice = Math.max.apply(Math,this.products.map(x=>x.price));
+      }) 
   }
 
   ngOnDestroy(): void {

@@ -1,22 +1,33 @@
-<div id="catalogContainer" class="page container" appScroll>
-    <aside class="col-sm-3 hidden-xs">
-        <div id="catalogFilter">
+<div id="catalogContainer" class="container" [class.catalog-is-mobile]="mobileQuery.matches" appScroll>
+    <div *ngIf="mobileQuery.matches" class="mobile-filter container ">
+        <i class="large material-icons icon-blue" (click) ="toogleReportsFilter()">view_list</i>
+        <span>סנן</span>
+    </div>
+    <aside [@expandCollapse] = 'openCloseAnim'>
+        <div id="catalogFilter" >   
+            <app-slider 
+                title='סינון לפי מחיר' 
+                maxprice={{maxprice}} 
+                (sliderValue)="sliderValChanged($event)"></app-slider><br>
+
+            <div id="SearcBoxContainer">
+                <mat-card>
+                    <mat-card-content>
+                        <div id="SearchBoxTitle">
+                            <span></span>
+                        </div>
+                        <input [(ngModel)]="searchText" placeholder="חפש מוצר">
+                    </mat-card-content>   
+                </mat-card>
+            </div><br>
+
             <app-filter 
                 title='סינון לפי קטגוריה' 
                 (selectedItemsChanged)="categoreisSelected($event)" 
                 [filterItems]="categories"></app-filter >
-            <app-slider 
-                title='סינון לפי מחיר' 
-                maxprice={{maxprice}} 
-                (sliderValue)="sliderValChanged($event)"></app-slider>
         </div>
     </aside>
     <section>
-        <header>
-            <div id="catalogSearch" class="container">
-                <input [(ngModel)]="searchText" placeholder="חפש מוצר">
-            </div>
-        </header>    
         <div id="catalogList" class="grid">
             <mat-list>
                 <app-products 

@@ -1,14 +1,26 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Product } from '../../shared/models/product';
-import { Category } from '../../shared/models/category';
+import { MediaMatcher} from '@angular/cdk/layout';
+import { ChangeDetectorRef, OnInit, Component, OnDestroy } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Product, Category } from '../../shared/models/models';
 import { ProductService } from '../../shared/services/services'
 import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss'],
+  animations: [trigger('expandCollapse', [
+      state('open', style({
+          'display': 'block',
+          
+      })),
+      state('close', style({
+          'display': 'none'
+      })),
+      transition('open <=> close', animate(100))
+  ])]
 })
+
 export class CatalogComponent implements OnInit,OnDestroy {
 
   categories: Category[] =[
@@ -22,8 +34,20 @@ export class CatalogComponent implements OnInit,OnDestroy {
   maxprice: number;
   priceFilter:number;
   private ngUnsubscribe: Subject<void> = new Subject();
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+  openCloseAnim:string = 'open' ;
 
-  constructor(private productService: ProductService) { }
+  constructor (
+    private productService: ProductService,
+    changeDetectorRef: ChangeDetectorRef, 
+    media: MediaMatcher,
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 450px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+   }
 
   ngOnInit() {
    this.productService.getProducts()
@@ -37,6 +61,7 @@ export class CatalogComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   categoreisSelected(_selectedCategories) {
@@ -46,4 +71,8 @@ export class CatalogComponent implements OnInit,OnDestroy {
   sliderValChanged(value) {
     this.priceFilter = value;
   }
+
+  toogleReportsFilter(): void {
+    this.openCloseAnim = (this.openCloseAnim == 'open') ? 'close' : 'open';
+  } 
 }

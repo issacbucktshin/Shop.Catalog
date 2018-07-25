@@ -1,0 +1,17 @@
+@import 'variables';
+
+#catalogContainer {
+    display: flex;
+}
+.catalog-is-mobile {
+    display: block !important;
+
+    .mobile-filter {
+         background-color: $catalog-filter-mobile-back;
+         margin: 5px;
+        
+         .icon-blue {
+           color: $catalog-filter-mobile-button;
+        }
+    }
+}

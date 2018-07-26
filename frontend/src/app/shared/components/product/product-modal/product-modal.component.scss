@@ -1,0 +1,38 @@
+@import 'variables';
+
+.modal-container {
+
+    .modal-header {
+         @extend %secondary-light;
+
+         .modal-title {
+             color: $secondary-color;
+         }
+    }
+
+    .modal-body {
+        display: flex;
+        
+        .product-modal-image {
+
+            img {
+                min-width: 4rem;
+                min-height: 4rem;
+                max-width: 250px;
+                max-height: 250px;
+            }
+
+        }
+        .product-modal-details {
+         
+            .product-modal-description {
+                margin: 5px; 
+                word-break: break-all;
+            }
+        }
+    }
+    
+    .modal-footer {
+        background-color: $primary-dark-color;
+    }
+}

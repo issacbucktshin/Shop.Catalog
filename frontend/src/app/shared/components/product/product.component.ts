@@ -18,8 +18,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {}
 
   openProductModal(){
-    const modalRef = this.modalService.open(ProductModalComponent);
-    modalRef.componentInstance.name = 'World';
+    const modalRef = this.modalService.open(ProductModalComponent,{ size: 'lg',windowClass:'.custom-show'});
     modalRef.componentInstance.product = this.product;
   }
 }

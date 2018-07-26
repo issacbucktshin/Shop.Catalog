@@ -2,6 +2,8 @@
 
 #productContainer {
     
+    @extend %primary;
+
     .product-thumb {
         border: 1px solid #ddd;
         margin-bottom: 20px;
@@ -19,12 +21,15 @@
             }
         }
 
-        .image-wrapper:after, .loading {
+        /*.image-wrapper:after, .loading {
             content: ' ';
             background: transparent url('/assets/images/loadingSpinner.gif') center no-repeat;    
             mix-blend-mode: screen;
-        }
+        }*/
         
+        .loading {
+            background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+        }
         .caption {
             padding: 0 20px;
             min-height: 180px;
@@ -42,14 +47,21 @@
 
         .button-group {
             border-top: 1px solid #ddd;
-            background-color: #eee;
+            //background-color: #eee;
+            @extend %secondary-light;
+
             overflow: auto;
 
             button {
                 width: 20%;
                 border-left: 1px solid #ddd;
                 background-color: transparent;
-                color: $product-like-color;
+
+                i{
+                    color: $secondary-color;
+
+                }
+
             }
         }
     }

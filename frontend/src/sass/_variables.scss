@@ -1,9 +1,34 @@
-$font-stack:    Helvetica, sans-serif;
+%primary
+{
+    background-color:  #ffffff;
+    color: #546e7a
+}
+%secondary {
+    background-color:#607d8b;
+    color:  #ffffff;
+}
+
+%secondary-light {
+    background-color: #8eacbb;
+    color:  #ffffff;
+}
+
+%secondary-dark {
+    background-color: #34515e;
+    color:  #ffffff;
+}
+
 $primary-color: white;
+$primary-dark-color:#f5f5f5;
+$prim-color: #546e7a;
+$secondary-color: white;
+
 $second-color: black;
+$font-stack: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 $background: #111E6c;
 $active: #2da9d2;
 $active-after: #608f9f;
+$active-after-color: #8eacbb;
 $home-title-size: 30px;
 $home-title-color:#000000;
 $catalog-filter-mobile-back: #EEEEEE;
@@ -12,7 +37,6 @@ $product-size-brwoser: 250px;
 $product-size-mobile: 325px;
 $product-name-color: #23a1d1;
 $product-like-color: red;
-$carousel-btn-back: #4682B4;
 $footer-back: #37474F;
 $footer-color: white;
 $font-site: 'Open Sans Hebrew', 'Open Sans', sans-serif;

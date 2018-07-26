@@ -16,6 +16,26 @@ body{
         padding: 10px;
     }
 
+    .title {
+        font-size: 1.5rem !important;
+    }
+
+    .label {
+       color: $prim-color;
+       font-size: 1 rem!important;
+    }
+
+    .margin-l {
+        margin-left: 10px; 
+    }
+
+    .margin-b {
+        margin-bottom: 10px; 
+    }
+
+    .break {
+        word-break: break-all;  
+    } 
     .page {
         width: 80%;
         margin: 0 auto;

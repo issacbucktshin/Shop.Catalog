@@ -29,14 +29,14 @@ export class CatalogComponent implements OnInit,OnDestroy {
   ]
   
   products: Product[] = [];
-  searchText: String;
-  selectedCategories : Category [] = [];
-  maxprice: number;
-  priceFilter:number;
-  private ngUnsubscribe: Subject<void> = new Subject();
+  searchText: String ;
+  selectedCategories : Category [] = [] ;
+  maxprice: number ;
+  priceFilter:number ;
+  private ngUnsubscribe: Subject<void> = new Subject() ;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  openCloseAnim:string = 'open' ;
+  openCloseAnim:string ;
 
   constructor (
     private productService: ProductService,
@@ -46,7 +46,6 @@ export class CatalogComponent implements OnInit,OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 450px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-
    }
 
   ngOnInit() {
@@ -55,13 +54,15 @@ export class CatalogComponent implements OnInit,OnDestroy {
      .subscribe((products:Product[]) => {
        this.products = products;
        this.maxprice = Math.max.apply(Math,this.products.map(x=>x.price));
-      }) 
+      })
+      this.openCloseAnim = (this.mobileQuery.matches) ? 'close' : 'open'
   }
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
     this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.toogleReportsFilter();
   }
 
   categoreisSelected(_selectedCategories) {

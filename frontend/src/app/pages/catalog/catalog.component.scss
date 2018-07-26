@@ -7,11 +7,17 @@
     display: block !important;
 
     .mobile-filter {
-         background-color: $catalog-filter-mobile-back;
-         margin: 5px;
+        @extend %secondary;
+         margin-bottom: 15px;
+         -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
         
          .icon-blue {
-           color: $catalog-filter-mobile-button;
+           color: $secondary-color;
+        }
+        span {
+            color: $secondary-color;
         }
     }
 }

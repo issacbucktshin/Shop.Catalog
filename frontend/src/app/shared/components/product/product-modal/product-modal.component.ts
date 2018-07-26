@@ -5,17 +5,13 @@ import { Product } from '../../../models/product'
 @Component({
   selector: 'app-product-modal',
   templateUrl: './product-modal.component.html',
-  styleUrls: ['./product-modal.component.css']
+  styleUrls: ['./product-modal.component.scss']
 })
 export class ProductModalComponent implements OnInit {
 
-  @Input() name;
-
   @Input() product;
   
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

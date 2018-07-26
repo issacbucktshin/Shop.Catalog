@@ -1,10 +1,7 @@
 @import 'variables';
 
 .footer {
-    //font-size: 20px;
-    background: #3f51b5;
-    color: #fff;
-    background-color: $footer-back;
+    @extend %secondary-dark;
     position: relative;
     left: 0;
     direction: rtl;
@@ -12,14 +9,13 @@
     width: 100%;
     overflow: hidden;
     
-
     .footer-content{
         align-items: center;
         display: flex;
         flex-flow: row wrap;
         
         p{
-            color: $footer-color;
+            color: $secondary-color;
         }
     }
 }

@@ -6,16 +6,16 @@
         <div class="app-logo"></div>
     </mat-toolbar>
       
-    <mat-sidenav-container class="appbar-sidenav-container"
+    <mat-sidenav-container class="appbar-sidenav-container" [hasBackdrop]="true" (backdropClick)="close('backdrop')"
         [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
         <mat-sidenav #snav 
-            [mode]="mobileQuery.matches ? 'push' : 'push'"
+            [mode]="push"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
-                    <a routerLink="/home" mat-menu-item >ראשי</a>
-                    <a routerLink="/catalog" mat-menu-item >קטלוג</a>
-                    <a routerLink="/about" mat-menu-item >מי אנחנו</a>
-                    <a routerLink="/contact" mat-menu-item >צור קשר</a>
+                    <a (click)="snav.toggle()" routerLink="/home" mat-menu-item >ראשי</a>
+                    <a (click)="snav.toggle()" routerLink="/catalog" mat-menu-item >קטלוג</a>
+                    <a (click)="snav.toggle()" routerLink="/about" mat-menu-item >מי אנחנו</a>
+                    <a (click)="snav.toggle()" routerLink="/contact" mat-menu-item >צור קשר</a>
             </mat-nav-list>
         </mat-sidenav>
       

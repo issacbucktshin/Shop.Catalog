@@ -16,8 +16,7 @@
     }
     .carousel-btn:hover{
         opacity: 1;
-        background-color: $carousel-btn-back;
-        color: white;
+        @extend %secondary-dark;
     }
     .leftRs {
         right:0;

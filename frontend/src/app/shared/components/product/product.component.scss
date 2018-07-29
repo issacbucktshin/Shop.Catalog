@@ -20,12 +20,6 @@
                 min-height: 200px;
             }
         }
-
-        /*.image-wrapper:after, .loading {
-            content: ' ';
-            background: transparent url('/assets/images/loadingSpinner.gif') center no-repeat;    
-            mix-blend-mode: screen;
-        }*/
         
         .loading {
             background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
@@ -47,8 +41,7 @@
 
         .button-group {
             border-top: 1px solid #ddd;
-            //background-color: #eee;
-            @extend %secondary-light;
+            @extend %secondary-dark;
 
             overflow: auto;
 
@@ -59,7 +52,6 @@
 
                 i{
                     color: $secondary-color;
-
                 }
 
             }

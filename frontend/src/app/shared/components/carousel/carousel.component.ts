@@ -1,5 +1,5 @@
 import { MediaMatcher} from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component,OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -23,9 +23,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  
+
   constructor(
-    changeDetectorRef: ChangeDetectorRef, 
+    changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     private _http: HttpClient ) {
       this.mobileQuery = media.matchMedia('(max-width: 450px)');
@@ -34,11 +34,9 @@ export class CarouselComponent implements OnInit, OnDestroy {
     }
 
   private _randomImageUrls(images: Array<{id: number}>): Array<string> {
-    
     return [1, 2, 3].map(() => {
       const randomId = images[Math.floor(Math.random() * images.length)].id;
-      return 'https://picsum.photos/g/960/300?image='+randomId;
+      return 'https://picsum.photos/g/960/300?image=' + randomId;
     });
   }
-
 }

@@ -3,7 +3,7 @@
 .modal-container {
 
     .modal-header {
-         @extend %secondary-light;
+         @extend %secondary-dark;
 
          .modal-title {
              color: $secondary-color;

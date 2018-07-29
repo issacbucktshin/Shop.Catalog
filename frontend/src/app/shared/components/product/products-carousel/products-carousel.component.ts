@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { NguCarouselStore, NguCarousel } from '@ngu/carousel';
-import { Product} from '../../../models/models'
-import { ProductService } from '../../../services/services'
+import { Product} from '../../../models/models';
+import { ProductService } from '../../../services/services';
 import { Input } from '@angular/core';
 
 @Component({
@@ -12,13 +12,13 @@ import { Input } from '@angular/core';
 export class ProductsCarouselComponent implements OnInit {
 
   @Input()
-  products: Product[]=[];
+  products: Product[] = [];
 
   public carousel: NguCarousel;
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService: ProductService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.carousel = {
       grid: {xs: 1, sm: 1, md: 1, lg: 5, all: 0},
       slide: 1,
@@ -32,8 +32,8 @@ export class ProductsCarouselComponent implements OnInit {
       touch: true,
       loop: true,
       custom: 'banner'
-    }
+    };
   }
 
-  carousleLoad(event){}
+  carousleLoad(event) { }
 }

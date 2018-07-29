@@ -1,6 +1,9 @@
-<app-appbar></app-appbar>
-<app-carousel></app-carousel>
-<div id="appContent">
+<app-appbar (isOpen)=navStateChanged($event)></app-appbar>
+<div [@opacity]="navIsOpen">
+    <app-carousel></app-carousel>
+</div>
+
+<div id="appContent"  [@opacity]="navIsOpen">
   <router-outlet></router-outlet>  
 </div>
 

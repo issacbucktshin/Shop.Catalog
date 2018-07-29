@@ -5,11 +5,15 @@
         </button>
         <div class="app-logo"></div>
     </mat-toolbar>
-      
+    
     <mat-sidenav-container class="appbar-sidenav-container" [hasBackdrop]="true" (backdropClick)="close('backdrop')"
         [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-        <mat-sidenav #snav 
-            [mode]="push"
+       
+        <mat-sidenav #snav
+            (openedChange)="onOpenedChange($event)"
+            [@expandCollapse] = snav.opened
+            [mode]="side"
+            [position]="end"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
                     <a (click)="snav.toggle()" routerLink="/home" mat-menu-item >ראשי</a>
@@ -18,7 +22,7 @@
                     <a (click)="snav.toggle()" routerLink="/contact" mat-menu-item >צור קשר</a>
             </mat-nav-list>
         </mat-sidenav>
-      
+        
         <mat-sidenav-content *ngIf="!mobileQuery.matches" class="appbar-contnet">
             <div routerLink="/home" class="app-logo-continar">
                 <div class="app-logo"></div>
@@ -31,4 +35,17 @@
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
+    <!--<mat-drawer-container class="container" [hasBackdrop]="true" style="position: static;">
+        <mat-drawer [position]="start" #drawer [mode]="push" >
+            <mat-nav-list>
+                <a (click)="drawer.toggle()" routerLink="/home" mat-menu-item >ראשי</a>
+                <a (click)="drawer.toggle()" routerLink="/catalog" mat-menu-item >קטלוג</a>
+                <a (click)="drawer.toggle()" routerLink="/about" mat-menu-item >מי אנחנו</a>
+                <a (click)="drawer.toggle()" routerLink="/contact" mat-menu-item >צור קשר</a>
+            </mat-nav-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <button mat-raised-button (click)="drawer.toggle()" class="appbar-contnet">Toggle drawer</button>
+        </mat-drawer-content>
+    </mat-drawer-container>-->
 </div>

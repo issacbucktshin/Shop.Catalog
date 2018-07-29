@@ -2,7 +2,7 @@ import { MediaMatcher} from '@angular/cdk/layout';
 import { ChangeDetectorRef, OnInit, Component, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Product, Category } from '../../shared/models/models';
-import { ProductService } from '../../shared/services/services'
+import { ProductService } from '../../shared/services/services';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -11,36 +11,37 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./catalog.component.scss'],
   animations: [trigger('expandCollapse', [
       state('open', style({
-          'display': 'block',
-          
+          'height': '450px',
+          'overflow' : 'visible'
       })),
       state('close', style({
-          'display': 'none'
+          'height': '0',
+          'overflow': 'hidden'
       })),
-      transition('open <=> close', animate(100))
+      transition('open <=> close', animate(300))
   ])]
 })
 
-export class CatalogComponent implements OnInit,OnDestroy {
+export class CatalogComponent implements OnInit, OnDestroy {
 
-  categories: Category[] =[
-    {id:1,name:'שוקולד'},
-    {id:2,name:'קפה'}
-  ]
-  
+  categories: Category[] = [
+    {id: 1, name: 'שוקולד'},
+    {id: 2, name: 'קפה'}
+  ];
+
   products: Product[] = [];
   searchText: String ;
-  selectedCategories : Category [] = [] ;
+  selectedCategories: Category [] = [] ;
   maxprice: number ;
-  priceFilter:number ;
+  priceFilter: number ;
   private ngUnsubscribe: Subject<void> = new Subject() ;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  openCloseAnim:string ;
+  openCloseAnim: string ;
 
   constructor (
     private productService: ProductService,
-    changeDetectorRef: ChangeDetectorRef, 
+    changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 450px)');
@@ -51,11 +52,11 @@ export class CatalogComponent implements OnInit,OnDestroy {
   ngOnInit() {
    this.productService.getProducts()
      .takeUntil(this.ngUnsubscribe)
-     .subscribe((products:Product[]) => {
+     .subscribe((products: Product[]) => {
        this.products = products;
-       this.maxprice = Math.max.apply(Math,this.products.map(x=>x.price));
-      })
-      this.openCloseAnim = (this.mobileQuery.matches) ? 'close' : 'open'
+       this.maxprice = Math.max.apply(Math, this.products.map(x => x.price));
+      });
+      this.openCloseAnim = (this.mobileQuery.matches) ? 'close' : 'open';
   }
 
   ngOnDestroy(): void {
@@ -74,6 +75,6 @@ export class CatalogComponent implements OnInit,OnDestroy {
   }
 
   toogleReportsFilter(): void {
-    this.openCloseAnim = (this.openCloseAnim == 'open') ? 'close' : 'open';
-  } 
+    this.openCloseAnim = (this.openCloseAnim === 'open') ? 'close' : 'open';
+  }
 }

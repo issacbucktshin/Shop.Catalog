@@ -3,13 +3,15 @@
         <i class="large material-icons icon-blue" (click) ="toogleReportsFilter()">view_list</i>
         <span>סנן</span>
     </div>
-    <aside [@expandCollapse] = 'openCloseAnim'>
-        <div id="catalogFilter" >   
-            <app-slider 
-                title='סינון לפי מחיר' 
-                maxprice={{maxprice}} 
-                (sliderValue)="sliderValChanged($event)"></app-slider><br>
-
+    <div [@expandCollapse] = 'openCloseAnim'>
+        <div id="catalogFilter" >
+            <div>
+                <app-slider 
+                    title='סינון לפי מחיר' 
+                    maxprice={{maxprice}} 
+                    (sliderValue)="sliderValChanged($event)"></app-slider>   
+            </div><br>
+            
             <div id="SearcBoxContainer">
                 <mat-card>
                     <mat-card-content>
@@ -20,13 +22,16 @@
                     </mat-card-content>   
                 </mat-card>
             </div><br>
-
-            <app-filter 
-                title='סינון לפי קטגוריה' 
-                (selectedItemsChanged)="categoreisSelected($event)" 
-                [filterItems]="categories"></app-filter >
+            
+            <div>
+                <app-filter 
+                    title='סינון לפי קטגוריה' 
+                    (selectedItemsChanged)="categoreisSelected($event)" 
+                    [filterItems]="categories"></app-filter>
+            </div>
+            
         </div>
-    </aside>
+    </div>
     <section>
         <div id="catalogList" class="grid">
             <mat-list>

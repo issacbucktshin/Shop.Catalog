@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Category } from '../../models/category'
 
 @Component({
@@ -6,7 +6,7 @@ import { Category } from '../../models/category'
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
   @Input()
   title:string;
@@ -21,11 +21,7 @@ export class FilterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  selectionChange(selection){
-    debugger
+  selectionChange(selection){    
     this.selectedItemsChanged.emit(selection);
   }
 }

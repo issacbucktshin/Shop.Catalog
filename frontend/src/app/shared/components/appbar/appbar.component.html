@@ -6,14 +6,10 @@
         <div class="app-logo"></div>
     </mat-toolbar>
     
-    <mat-sidenav-container class="appbar-sidenav-container" [hasBackdrop]="true" (backdropClick)="close('backdrop')"
-        [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-       
+    <mat-sidenav-container class="appbar-sidenav-container" [style.marginTop.px]="0">
         <mat-sidenav #snav
             (openedChange)="onOpenedChange($event)"
             [@expandCollapse] = snav.opened
-            [mode]="side"
-            [position]="end"
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
                     <a (click)="snav.toggle()" routerLink="/home" mat-menu-item >ראשי</a>

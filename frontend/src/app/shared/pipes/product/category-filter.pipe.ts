@@ -9,12 +9,11 @@ export class CategoryFilterPipe implements PipeTransform {
   
   transform(products: Product[], categories?:Category[]): any {
     
-    let mapCat = categories.map(Category => Category.id);
-
+    let mapCategories = categories.map(Category => Category.id);
     if(!categories.length) return products;
- 
-    return products.filter(product => 
-      !mapCat.includes(product.category.id)
-    )
+
+    return products.filter(product => {
+      return mapCategories.includes(product.category.id);
+    });
   }
 }

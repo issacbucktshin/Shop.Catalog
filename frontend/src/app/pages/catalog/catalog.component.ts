@@ -2,7 +2,7 @@ import { MediaMatcher} from '@angular/cdk/layout';
 import { ChangeDetectorRef, OnInit, Component, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Product, Category } from '../../shared/models/models';
-import { ProductService } from '../../shared/services/services';
+import { ProductService, CategoryService } from '../../shared/services/services';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -24,22 +24,21 @@ import { Subject } from 'rxjs/Subject';
 
 export class CatalogComponent implements OnInit, OnDestroy {
 
-  categories: Category[] = [
-    {id: 1, name: 'שוקולד'},
-    {id: 2, name: 'קפה'}
-  ];
-
+  categories: Category[] = [];
   products: Product[] = [];
-  searchText: String ;
   selectedCategories: Category [] = [] ;
+
+  searchText: String ;
   maxprice: number ;
   priceFilter: number ;
+  
   private ngUnsubscribe: Subject<void> = new Subject() ;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  openCloseAnim: string ;
+  openCloseAnim: string;
 
   constructor (
+    private categoryService: CategoryService,
     private productService: ProductService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
@@ -50,13 +49,9 @@ export class CatalogComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-   this.productService.getProducts()
-     .takeUntil(this.ngUnsubscribe)
-     .subscribe((products: Product[]) => {
-       this.products = products;
-       this.maxprice = Math.max.apply(Math, this.products.map(x => x.price));
-      });
-      this.openCloseAnim = (this.mobileQuery.matches) ? 'close' : 'open';
+   this.openCloseAnim = (this.mobileQuery.matches) ? 'close' : 'open';
+   this.retrieveProducts();
+   this.retrieveCategories();
   }
 
   ngOnDestroy(): void {
@@ -64,6 +59,23 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
     this.mobileQuery.removeListener(this._mobileQueryListener);
     this.toogleReportsFilter();
+  }
+
+  retrieveProducts() {
+    this.productService.getProducts()
+    .takeUntil(this.ngUnsubscribe)
+    .subscribe((products: Product[]) => {
+      this.products = products;
+      this.maxprice = Math.max.apply(Math, this.products.map(x => x.price));
+     });
+  }
+
+  retrieveCategories() {
+    this.categoryService.getCategories()
+      .takeUntil(this.ngUnsubscribe)
+      .subscribe((_categories: Category[]) => {
+        this.categories = _categories
+      });
   }
 
   categoreisSelected(_selectedCategories) {

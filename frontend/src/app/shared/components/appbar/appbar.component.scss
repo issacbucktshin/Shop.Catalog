@@ -31,6 +31,7 @@
         overflow: hidden;
 
         .app-logo-continar {
+            outline: none;
             float: right;
             height: 100%;
             width: 20%;
@@ -38,6 +39,7 @@
             cursor: pointer;
             
             .app-logo:focus {
+                outline: none;
                 text-decoration: initial !important;
             }
 
@@ -51,6 +53,9 @@
             }
         }
 
+        .app-logo-continar :focus {
+            outline: none;
+        }
         .menu-items {
 
             .menu-item {

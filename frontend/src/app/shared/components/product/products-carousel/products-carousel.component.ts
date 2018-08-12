@@ -20,7 +20,7 @@ export class ProductsCarouselComponent implements OnInit {
 
   ngOnInit() {
     this.carousel = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 5, all: 0},
+      grid: {xs: 1, sm: 1, md: 1, lg: 4, all: 0},
       slide: 1,
       speed: 100,
       interval: 2000,

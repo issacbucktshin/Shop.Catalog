@@ -1,6 +1,6 @@
 <div class="container carousel-contianer">
   <div class="carousel-content">
-    <ngu-carousel
+    <ngu-carousel class="carousel-content-wrapper"
       [inputs]="carousel"
       (carouselLoad)="carousleLoad($event)">
         <ngu-item NguCarouselItem *ngFor="let product of products">

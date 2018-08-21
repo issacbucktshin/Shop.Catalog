@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
+  MatProgressSpinnerModule,
   MatFormFieldModule,
   MatSliderModule,
   MatListModule, 
@@ -17,6 +18,7 @@ import {
 
 @NgModule({
   imports: [
+    MatProgressSpinnerModule,
     MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,
@@ -31,6 +33,7 @@ import {
     MatSliderModule
   ],
   exports: [
+    MatProgressSpinnerModule,
     MatSidenavModule,
     MatInputModule,
     MatFormFieldModule,

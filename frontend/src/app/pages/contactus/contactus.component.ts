@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { MessagesService } from '../../shared/services/messages/messages.service';
+import { Message } from '../../shared/models/models';
 
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.component.html',
   styleUrls: ['./contactus.component.scss']
 })
-export class ContactusComponent implements OnInit {
 
-  constructor() { }
+export class ContactusComponent  {
 
-  ngOnInit() {
+  loading:boolean = false;
+
+  constructor(private messagesService: MessagesService) {}
+
+  submit() {
+    this.toggleLoader();
+
+    let message = new Message;
+    message.form = 'issac688@gmail.com';
+    message.text = 'angular 6 test messages';
+
+    this.messagesService.send(message)
+      .catch((error) => console.log('ERROR: ',  error))
+      .then((response) =>
+        {
+          this.toggleLoader();
+          console.log(response)
+        })
   }
 
+  toggleLoader() {
+    this.loading = !this.loading;
+  }
 }

@@ -2,7 +2,10 @@
   <div class="map">
       <mat-card><app-map [lat]="32.0903731" [lng]="34.8400775"></app-map></mat-card>
   </div>
-  <div class="contactus-form">
+  <div class="loader-wrapper" *ngIf="loading">
+    <mat-progress-spinner></mat-progress-spinner>
+  </div>
+  <div class="contactus-form" >
       <mat-card>
         <mat-card-header>
             <h1>צור קשר</h1>
@@ -23,7 +26,7 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button class="button" mat-button>שלח</button>
+        <button mat-raised-button color="accent" class="button" mat-button (click)="submit()">שלח</button>
       </mat-card-actions>
       </mat-card>
     </div>

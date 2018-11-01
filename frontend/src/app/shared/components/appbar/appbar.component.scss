@@ -1,115 +1,177 @@
-@import 'variables';
+// @import 'variables';
 
-.appbar-container {
-    @extend %primary;
-    width: 100%;
-    height: 80px;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 100;
-    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 5px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-    text-align: center;
-    position: fixed;
+// .appbar-container {
+//     @extend %primary;
+//     width: 100%;
+//     height: 80px;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     z-index: 100;
+//     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 5px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+//     text-align: center;
+//     position: fixed;
 
-    .appbar-toolbar {
-        background-color: $primary-color;
-    }
+//     .appbar-toolbar {
+//         background-color: $primary-color;
+//     }
     
-    .appbar-sidenav-container {
-        height: 100%;
-        flex: 1;
-        background-color: $primary-color;
-    }
+//     .appbar-sidenav-container {
+//         height: 100%;
+//         flex: 1;
+//         background-color: $primary-color;
+//     }
 
-    .appbar-contnet {
-        background-color: $primary-color;
-        height: 100%;
-        width: 50%;
-        margin: 0 auto;
-        padding: 17px;
-        overflow: hidden;
+//     .appbar-contnet {
+//         background-color: $primary-color;
+//         height: 100%;
+//         width: 50%;
+//         margin: 0 auto;
+//         padding: 17px;
+//         overflow: hidden;
 
-        .app-logo-continar {
-            outline: none;
-            float: right;
-            height: 100%;
-            width: 20%;
-            margin-left: 10%;
-            cursor: pointer;
+//         .app-logo-continar {
+//             outline: none;
+//             float: right;
+//             height: 100%;
+//             width: 20%;
+//             margin-left: 10%;
+//             cursor: pointer;
             
-            .app-logo:focus {
-                outline: none;
-                text-decoration: initial !important;
-            }
+//             .app-logo:focus {
+//                 outline: none;
+//                 text-decoration: initial !important;
+//             }
 
-            .app-logo {
-                margin: 0 auto;
-                background-image: url('/assets/images/logo.png');
-                background-repeat: no-repeat; 
-                width: 100%;
-                height: 100%;
-                float: right;
-            }
-        }
+//             .app-logo {
+//                 margin: 0 auto;
+//                 background-image: url('/assets/images/logo.png');
+//                 background-repeat: no-repeat; 
+//                 width: 100%;
+//                 height: 100%;
+//                 float: right;
+//             }
+//         }
 
-        .app-logo-continar :focus {
-            outline: none;
-        }
-        .menu-items {
+//         .app-logo-continar :focus {
+//             outline: none;
+//         }
+//         .menu-items {
 
-            .menu-item {
-              padding: 20px;
-            }
+//             .menu-item {
+//               padding: 20px;
+//             }
 
-            a.nav-active {
-                 box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-                @extend %secondary-dark;
-             }
+//             a.nav-active {
+//                  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+//                 @extend %secondary-dark;
+//              }
     
-             .nav-active::before{
-                 box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-                 padding-left: inherit;
-                 padding-right: inherit; 
-                 margin: -20px;
-                 top: 78px;
-                 height: 23px;
-                 position: absolute;
-                 content: attr(data-title);
-                 color:$active-after-color;
-                 @extend %secondary-light;
-             }
+//              .nav-active::before{
+//                  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+//                  padding-left: inherit;
+//                  padding-right: inherit; 
+//                  margin: -20px;
+//                  top: 78px;
+//                  height: 23px;
+//                  position: absolute;
+//                  content: attr(data-title);
+//                  color:$active-after-color;
+//                  @extend %secondary-light;
+//              }
  
-              a:hover{  
-                 text-decoration: initial;
-              } 
-         } 
-    }
-}
-/* For Mobile*/
-.appbar-is-mobile {
-    height: 46px;
+//               a:hover{  
+//                  text-decoration: initial;
+//               } 
+//          } 
+//     }
+// }
+// /* For Mobile*/
+// .appbar-is-mobile {
+//     height: 46px;
 
-    .appbar-toolbar {
-        position: fixed;
-        z-index: 2;
+//     .appbar-toolbar {
+//         position: fixed;
+//         z-index: 2;
 
-        .app-logo {
-            margin:0 auto;
-            padding: 25px;
-            background-image: url('/assets/images/logo.png');
-            background-repeat: no-repeat;      
-        }
-    }
-    .appbar-sidenav-container {
-        height: 50%;
-        flex: 1;
-        background-color: $primary-color;
+//         .app-logo {
+//             margin:0 auto;
+//             padding: 25px;
+//             background-image: url('/assets/images/logo.png');
+//             background-repeat: no-repeat;      
+//         }
+//     }
+//     .appbar-sidenav-container {
+//         height: 50%;
+//         flex: 1;
+//         background-color: $primary-color;
 
-        .mat-sidenav {
-            @extend %secondary-dark;
-            transform:translate3d(0px, 0px, 0px) !important;
-        }
-    }
-}
+//         .mat-sidenav {
+//             @extend %secondary-dark;
+//             transform:translate3d(0px, 0px, 0px) !important;
+//         }
+//     }
+// }
  
+// .app-bar-container {
+
+//     .header-bottom {
+//         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+//         position: static;
+//         background-color: white;
+
+//         .header-holder {
+//             position: relative;
+
+//             .header-row {
+//                 flex-wrap: nowrap;
+
+//                 .app-logo {
+//                     padding: 25px;
+//                     background-image: url('/assets/images/logo.png');
+//                     background-repeat: no-repeat;      
+//                 }
+//              }
+//         }
+//     }
+//     .search-container {
+//         position: relative;
+    
+//         .search-icon {
+//             position: absolute;
+//             top: 5px;
+//             left: 25px;
+//             font-size: 15px;
+//         }
+        
+//         input.search {
+//             padding: 7px 30px 7px 15px;
+//             width: 100%;
+//         }
+//     }
+
+//     ul {
+//         display: flex;
+//         justify-content: space-around;
+//         box-shadow: none;
+//         padding: 0 10px;
+//         margin: 0;
+
+//         li {
+//             padding: 15px 0;
+//             margin: 0 15px;
+//             border: none;
+
+//             .menu-link {
+//                 font-weight: bold;
+//                 text-decoration: none;
+//                 text-transform: uppercase;
+//                 display: block;
+//             }
+//         }
+//     }
+// }
+
+.app-bar-container {
+   
+}

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Category, Product} from '../../models/models'
+import { ProductModel, CategoryModel } from '../../../models/models';
 
 @Pipe({
   name: 'categoryFilter'
@@ -7,7 +7,7 @@ import { Category, Product} from '../../models/models'
 
 export class CategoryFilterPipe implements PipeTransform {
   
-  transform(products: Product[], categories?:Category[]): any {
+  transform(products: ProductModel[], categories?:CategoryModel[]): any {
     
     let mapCategories = categories.map(Category => Category.id);
     if(!categories.length) return products;

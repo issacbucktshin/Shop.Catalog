@@ -1,0 +1,19 @@
+<div class="product-card-container" [class.product-card-xl]="mobileQuery.matches" [ngClass]="class">
+    <img src={{product.img}} class="product-card-image">
+    <div class="product-card-content">
+        <div class="product-card-text">
+            <p class="product-card-title">{{product.name}}</p>
+            <p class="product-card-description">{{product.description}}</p>
+        </div>
+        <div class="product-card-actions">
+            <div class="product-card-price">
+                <span class="product-card-price-value">{{product.price}} ש"ח</span>
+                <div class="actions">
+                    <div class="number">
+                        <button mat-button>הוסף לרשימה</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

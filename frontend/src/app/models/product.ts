@@ -1,11 +1,11 @@
-import { Category } from './category';
+import { CategoryModel } from './category';
 
-export class Product {
+export class ProductModel {
     id: number;
     name: string;
     description: string;
     price: number;
     img: string;
-    category: Category;
+    category: CategoryModel;
     isHot: boolean;
 }

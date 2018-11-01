@@ -1,6 +1,6 @@
 import { MediaMatcher} from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, Input } from '@angular/core';
-import { Product } from '../../../models/product'
+import { ProductModel } from '../../../../models/models';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +10,7 @@ import { Product } from '../../../models/product'
 export class ProductsComponent implements OnDestroy {
 
   @Input() 
-  products: Product[] = [];
+  products: ProductModel[] = [];
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;

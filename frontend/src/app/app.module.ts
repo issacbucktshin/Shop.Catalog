@@ -12,18 +12,15 @@ import { FirebaseModule } from './modules/firebase/firebase.module';
 import { NguCarouselModule } from '@ngu/carousel';
 import { AgmCoreModule } from '@agm/core';
 
-
 // components
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './shared/components/product/products/products.component';
 import { AppbarComponent } from './shared/components/appbar/appbar.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CarouselComponent } from './shared/components/carousel/carousel.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { FilterComponent } from './shared/components/filter/filter.component';
 import { ProductComponent } from './shared/components/product/product.component';
-import { ProductModalComponent } from './shared/components/product/product-modal/product-modal.component';
 import { SliderComponent } from './shared/components/slider/slider.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { MapComponent } from './shared/components/map/map.component';
@@ -35,6 +32,9 @@ import { ProductsCarouselComponent } from './shared/components/product/products-
 import { FilterPipe } from './shared/pipes/filters/filter.pipe';
 import { PriceFilterPipe } from './shared/pipes/product/price-filter.pipe';
 import { CategoryFilterPipe } from './shared/pipes/product/category-filter.pipe';
+import { ProductCardComponent } from './shared/components/product/product-card/product-card.component';
+import { FooterComponent } from './shared/components/layout/footer/footer.component';
+import { ProductModalComponent } from './shared/components/product/product-modal/product-modal.component';
 
 
 @NgModule({
@@ -57,7 +57,8 @@ import { CategoryFilterPipe } from './shared/pipes/product/category-filter.pipe'
     MapComponent,
     AboutusComponent,
     ScrollDirective,
-    ProductsCarouselComponent
+    ProductsCarouselComponent,
+    ProductCardComponent
   ],
   imports: [
     FirebaseModule,

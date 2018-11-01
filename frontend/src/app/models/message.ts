@@ -1,4 +1,4 @@
-export class Message {
+export class MessageModel {
     form: string;
     text: string;
 }

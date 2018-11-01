@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { MessagesService } from '../../shared/services/messages/messages.service';
-import { Message } from '../../shared/models/models';
+import { MessageModel } from '../../models/models';
 
 @Component({
   selector: 'app-contactus',
@@ -17,7 +17,7 @@ export class ContactusComponent  {
   submit() {
     this.toggleLoader();
 
-    let message = new Message;
+    let message = new MessageModel;
     message.form = 'issac688@gmail.com';
     message.text = 'angular 6 test messages';
 

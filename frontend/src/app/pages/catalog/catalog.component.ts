@@ -1,9 +1,9 @@
 import { MediaMatcher} from '@angular/cdk/layout';
 import { ChangeDetectorRef, OnInit, Component, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Product, Category } from '../../shared/models/models';
 import { ProductService, CategoryService } from '../../shared/services/services';
 import { Subject } from 'rxjs/Subject';
+import { CategoryModel, ProductModel } from '../../models/models';
 
 @Component({
   selector: 'app-catalog',
@@ -24,9 +24,9 @@ import { Subject } from 'rxjs/Subject';
 
 export class CatalogComponent implements OnInit, OnDestroy {
 
-  categories: Category[] = [];
-  products: Product[] = [];
-  selectedCategories: Category [] = [] ;
+  categories: CategoryModel[] = [];
+  products: ProductModel[] = [];
+  selectedCategories: CategoryModel [] = [] ;
 
   searchText: String ;
   maxprice: number ;
@@ -64,7 +64,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   retrieveProducts() {
     this.productService.getProducts()
     .takeUntil(this.ngUnsubscribe)
-    .subscribe((products: Product[]) => {
+    .subscribe((products: ProductModel[]) => {
       this.products = products;
       this.maxprice = Math.max.apply(Math, this.products.map(x => x.price));
      });
@@ -73,7 +73,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
   retrieveCategories() {
     this.categoryService.getCategories()
       .takeUntil(this.ngUnsubscribe)
-      .subscribe((_categories: Category[]) => {
+      .subscribe((_categories: CategoryModel[]) => {
         this.categories = _categories
       });
   }

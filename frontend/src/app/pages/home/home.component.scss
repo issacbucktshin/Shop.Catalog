@@ -2,13 +2,22 @@
 
 .home-contianer {
 
-    .products-container {
+    &.home-sm {
+        .catalog-grid {
+            display: block !important;
+        }
+    }
 
-        .home-title {
-            text-align: center;
-            
-            span {
-                color:$prim-color;
+    .catalog {
+
+        .catalog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            -webkit-box-pack: justify;
+
+            .product-card-container {
+                width: 23%;
             }
         }
     }

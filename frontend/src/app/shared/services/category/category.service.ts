@@ -1,9 +1,8 @@
 import { Injectable} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Category } from '../../models/models'
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
+import { CategoryModel } from '../../../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +12,16 @@ import 'rxjs/Rx';
 export class CategoryService {
   
   categoryCollection: AngularFirestoreCollection<any>;
-  categories: Observable<Category[]>  
+  categories: Observable<CategoryModel[]>  
   api:string = 'categories';
 
   
   constructor(public afs:AngularFirestore) {
     
-    this.categoryCollection = this.afs.collection<Category>(this.api);  
+    this.categoryCollection = this.afs.collection<CategoryModel>(this.api);  
     this.categories = this.categoryCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
-        const data = a.payload.doc.data() as Category;
+        const data = a.payload.doc.data() as CategoryModel;
         data.id = +a.payload.doc.id;
         return data;
       });
@@ -33,7 +32,7 @@ export class CategoryService {
     return this.categories;
   }  
 
-  getCategories(id?:number) : Observable<Category[]> {
+  getCategories(id?:number) : Observable<CategoryModel[]> {
     
     if(id == null) return  this.getCategoryList();
     return this.categories

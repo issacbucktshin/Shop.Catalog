@@ -5,13 +5,28 @@
 body{
 
     margin: 0 !important;
-    background-color: #e9ebee;
- 
-    .container {
-        margin: 0 auto;
-        width: 100%;
-        padding: 10px;
+    //background-color: #e9ebee;
+
+    .row.no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+      
+        & > [class^="col-"],
+        & > [class*=" col-"] {
+          padding-right: 0;
+          padding-left: 0;
+        }
     }
+
+    img {
+        border-style: none;
+        max-width: 100%;
+    }
+    // .container {
+    //     margin: 0 auto;
+    //     width: 100%;
+    //     padding: 10px;
+    // }
 
     .title {
         font-size: 1.5rem !important;
@@ -19,7 +34,12 @@ body{
 
     .label {
        color: $prim-color;
-       font-size: 1 rem!important;
+       font-size: 1.2rem!important;
+       font-weight: 700;
+    }
+    .bold {
+        font-size: 1.5rem;
+        color: black;
     }
 
     .margin-l {
@@ -49,5 +69,21 @@ body{
     .ngucarousel-inner {
         margin-left: 50px;
         margin-right: 50px;
+    }
+
+    input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="url"], input[type="tel"] {
+        border-radius: 5px;
+        background: transparent;
+        color: #000;
+        border: 1px solid #ccc;
+        font: 16px "Quattrocento Sans", sans-serif;
+        padding: 6px 15px 7px;
+        -webkit-transition: .2s ease-in border-color,.2s ease-in color;
+        transition: .2s ease-in border-color,.2s ease-in color;
+    }
+
+    p {
+        line-height: 1.75;
+        margin: 0 0 2px;
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../models/product'
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from './product-modal/product-modal.component'
+import { ProductModel } from '../../../models/models';
 
 @Component({
   selector: 'app-product',
@@ -10,15 +10,15 @@ import { ProductModalComponent } from './product-modal/product-modal.component'
 })
 export class ProductComponent implements OnInit {
 
-  @Input()
-  product:Product;
+  @Input() product:ProductModel;
 
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {}
 
   openProductModal(){
-    const modalRef = this.modalService.open(ProductModalComponent,{ size: 'lg',windowClass:'.custom-show'});
+    const modalRef = this.modalService.open(ProductModalComponent,
+      { size: 'lg',windowClass:'.custom-show'});
     modalRef.componentInstance.product = this.product;
   }
 }

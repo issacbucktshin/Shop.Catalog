@@ -1,6 +1,7 @@
 import { MediaMatcher} from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, Output, EventEmitter, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NavItemModel } from '../../../models/models';
 
 @Component({
   selector: 'app-appbar',
@@ -17,23 +18,44 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ])]
 })
 
-export class AppbarComponent implements OnDestroy {
-
+export class AppbarComponent implements OnInit, OnDestroy {
+  
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
+  
   @Output() isOpen = new EventEmitter<boolean>();
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
-
+  navItems: NavItemModel[] = [];
+  
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 450px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-
+  
+  ngOnInit(): void {
+    this.navItems = [
+      { 
+        path: '/home',
+        name: 'דף הבית'
+      },
+      {
+        path: '/catalog',
+        name: 'קטלוג'
+      },
+      {
+        path: '/about',
+        name: 'עלינו'
+      },
+      {
+        path: '/contact',
+        name: 'צור קשר'
+      }
+    ]
+  }
   onOpenedChange(e: boolean) {
     this.isOpen.emit(e);
+  }
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }

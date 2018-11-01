@@ -1,10 +1,11 @@
+<!-- <div [@opacity]="navIsOpen">
+  <app-carousel></app-carousel>
+</div> -->
+
+<!-- <div id="appContent"  [@opacity]="navIsOpen">
+</div> -->
 <app-appbar (isOpen)=navStateChanged($event)></app-appbar>
-<div [@opacity]="navIsOpen">
-    <app-carousel></app-carousel>
-</div>
 
-<div id="appContent"  [@opacity]="navIsOpen">
-  <router-outlet></router-outlet>  
-</div>
+<router-outlet></router-outlet>  
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

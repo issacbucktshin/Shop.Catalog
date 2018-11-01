@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
-import { NguCarouselStore, NguCarousel } from '@ngu/carousel';
-import { Product} from '../../../models/models';
+import { NguCarousel } from '@ngu/carousel';
 import { ProductService } from '../../../services/services';
 import { Input } from '@angular/core';
+import { ProductModel } from '../../../../models/models';
 
 @Component({
   selector: 'app-products-carousel',
@@ -12,7 +12,7 @@ import { Input } from '@angular/core';
 export class ProductsCarouselComponent implements OnInit {
 
   @Input()
-  products: Product[] = [];
+  products: ProductModel[] = [];
 
   public carousel: NguCarousel;
 

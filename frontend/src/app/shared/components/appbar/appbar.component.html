@@ -1,4 +1,4 @@
-<div class="appbar-container" [class.appbar-is-mobile]="mobileQuery.matches" >
+<!-- <div class="appbar-container" [class.appbar-is-mobile]="mobileQuery.matches" >
     <mat-toolbar [color]="white" class="appbar-toolbar" *ngIf="mobileQuery.matches">
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
@@ -31,17 +31,68 @@
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <!--<mat-drawer-container class="container" [hasBackdrop]="true" style="position: static;">
-        <mat-drawer [position]="start" #drawer [mode]="push" >
-            <mat-nav-list>
-                <a (click)="drawer.toggle()" routerLink="/home" mat-menu-item >ראשי</a>
-                <a (click)="drawer.toggle()" routerLink="/catalog" mat-menu-item >קטלוג</a>
-                <a (click)="drawer.toggle()" routerLink="/about" mat-menu-item >מי אנחנו</a>
-                <a (click)="drawer.toggle()" routerLink="/contact" mat-menu-item >צור קשר</a>
-            </mat-nav-list>
-        </mat-drawer>
-        <mat-drawer-content>
-            <button mat-raised-button (click)="drawer.toggle()" class="appbar-contnet">Toggle drawer</button>
-        </mat-drawer-content>
-    </mat-drawer-container>-->
-</div>
+</div> -->
+<!-- <div class="app-bar-container"  [class.appbar-is-mobile]="mobileQuery.matches">
+    <header>
+        <div class="header-top">
+            <mat-toolbar color="secondary">
+                <mat-toolbar-row>
+                    <div class="container">
+                        <div class="row justify-content-around align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <a href="#" class="location">45 Rupara st, Sidney, Australia</a>
+                                <span class="phone-number">+61 (08) 8276 8692</span>
+                            </div>
+                            <div class="col-12 col-md-auto search-container">
+                                <span class="search-icon"><i class="material-icons">search</i></span>
+                                <input type="text" class="search" placeholder="חפש...">   
+                            </div>
+                        </div>
+                    </div>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+        <div class="header-bottom">
+            <div class="container header-holder">
+                <div class="row justify-content-around align-items-center header-row">
+                    <div class="col-auto col-lg-1">
+                        <div class="app-logo"></div>
+                    </div>
+                    <nav class="col-auto col-lg-7 menu">
+                        <ul>
+                            <li *ngFor="let item of navItems">
+                                <a href={{item.path}} class="menu-link">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>   -->
+<header class="app-bar container">
+    <div class="app-bar-container">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <div class="site-name col">
+                    <span>שם האתר</span>
+                </div>
+                <div class="search col">
+                    <span>תיבת חיפוש</span>
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row>
+                <nav>
+                    <ul>
+                        <li class="logo"></li>
+                        <li *ngFor="let navItem of navItems">
+                            <a href="{{navItem.path}}">
+                                <span>{{navItem.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+</header>

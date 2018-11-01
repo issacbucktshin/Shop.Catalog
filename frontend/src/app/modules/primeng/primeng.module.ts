@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SlideMenuModule } from 'primeng/slidemenu';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   imports: [
-    CommonModule,
-    SlideMenuModule
+    CommonModule
   ],
   declarations: [],
-  exports: [SlideMenuModule]
+  exports: [
+    TabMenuModule,
+    MenubarModule
+  ]
 })
 export class PrimengModule { }

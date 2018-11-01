@@ -5,7 +5,7 @@
         </button>
         <div class="app-logo"></div>
     </mat-toolbar>
-    
+
     <mat-sidenav-container class="appbar-sidenav-container" [style.marginTop.px]="0">
         <mat-sidenav #snav
             (openedChange)="onOpenedChange($event)"
@@ -18,7 +18,7 @@
                     <a (click)="snav.toggle()" routerLink="/contact" mat-menu-item >צור קשר</a>
             </mat-nav-list>
         </mat-sidenav>
-        
+
         <mat-sidenav-content *ngIf="!mobileQuery.matches" class="appbar-contnet">
             <div routerLink="/home" class="app-logo-continar">
                 <div class="app-logo"></div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-12 col-md-auto search-container">
                                 <span class="search-icon"><i class="material-icons">search</i></span>
-                                <input type="text" class="search" placeholder="חפש...">   
+                                <input type="text" class="search" placeholder="חפש...">
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,14 @@
         </div>
     </header>
 </div>   -->
-<header class="app-bar container">
-    <div class="app-bar-container">
+<header class="app-bar">
+    <div class="app-bar-container wrapper">
         <mat-toolbar color="primary">
             <mat-toolbar-row>
+                <div class="col" *ngIf="mobileQuery.matches">
+                   <span><i class="material-icons"> menu</i></span>
+                </div>
+                <div class="logo col" *ngIf="mobileQuery.matches">logo</div>
                 <div class="site-name col">
                     <span>שם האתר</span>
                 </div>
@@ -81,17 +85,18 @@
                     <span>תיבת חיפוש</span>
                 </div>
             </mat-toolbar-row>
-            <mat-toolbar-row>
+            <mat-toolbar-row *ngIf="!mobileQuery.matches">
                 <nav>
                     <ul>
                         <li class="logo"></li>
                         <li *ngFor="let navItem of navItems">
-                            <a href="{{navItem.path}}">
+                            <a [routerLink]="navItem.path">
                                 <span>{{navItem.name}}</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
+
             </mat-toolbar-row>
         </mat-toolbar>
     </div>

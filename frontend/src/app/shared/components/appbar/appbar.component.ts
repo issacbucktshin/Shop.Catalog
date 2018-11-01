@@ -19,38 +19,37 @@ import { NavItemModel } from '../../../models/models';
 })
 
 export class AppbarComponent implements OnInit, OnDestroy {
-  
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  
+
   @Output() isOpen = new EventEmitter<boolean>();
   navItems: NavItemModel[] = [];
-  
+
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 450px)');
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-  
+
   ngOnInit(): void {
     this.navItems = [
-      { 
+      {
         path: '/home',
         name: 'דף הבית'
       },
       {
-        path: '/catalog',
-        name: 'קטלוג'
+        path: '/home',
+        name: 'דף הבית'
       },
       {
-        path: '/about',
-        name: 'עלינו'
+        path: '/home',
+        name: 'דף הבית'
       },
       {
-        path: '/contact',
-        name: 'צור קשר'
+        path: '/home',
+        name: 'דף הבית'
       }
-    ]
+    ];
   }
   onOpenedChange(e: boolean) {
     this.isOpen.emit(e);

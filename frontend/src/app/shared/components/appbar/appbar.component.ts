@@ -38,16 +38,16 @@ export class AppbarComponent implements OnInit, OnDestroy {
         name: 'דף הבית'
       },
       {
-        path: '/home',
-        name: 'דף הבית'
+        path: '/catalog',
+        name: 'מוצרים'
       },
       {
-        path: '/home',
-        name: 'דף הבית'
+        path: '/about',
+        name: 'עלינו'
       },
       {
-        path: '/home',
-        name: 'דף הבית'
+        path: '/contact',
+        name: 'צור קשר'
       }
     ];
   }

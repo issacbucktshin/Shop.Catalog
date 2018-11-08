@@ -70,34 +70,38 @@
         </div>
     </header>
 </div>   -->
-<header class="app-bar">
-    <div class="app-bar-container wrapper">
-        <mat-toolbar color="primary">
-            <mat-toolbar-row>
-                <div class="col" *ngIf="mobileQuery.matches">
-                   <span><i class="material-icons"> menu</i></span>
-                </div>
-                <div class="logo col" *ngIf="mobileQuery.matches">logo</div>
-                <div class="site-name col">
-                    <span>שם האתר</span>
-                </div>
-                <div class="search col">
-                    <span>תיבת חיפוש</span>
-                </div>
-            </mat-toolbar-row>
-            <mat-toolbar-row *ngIf="!mobileQuery.matches">
-                <nav>
-                    <ul>
-                        <li class="logo"></li>
-                        <li *ngFor="let navItem of navItems">
-                            <a [routerLink]="navItem.path">
-                                <span>{{navItem.name}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </mat-toolbar-row>
-        </mat-toolbar>
+<header>
+    <div class="menu">
+        <div class="app-bar-container wrapper">
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                    <div class="col-2" *ngIf="mobileQuery.matches">
+                       <span><i class="material-icons"> menu</i></span>
+                    </div>
+                    <div class="logo col-2" *ngIf="mobileQuery.matches"></div>
+                    <div class="site-name col-8">
+                        <span>שם האתר</span>
+                    </div>
+                    <div class="search col-4">
+                        <input type="text" pInputText placeholder="חפש"/>
+                        <span >
+                            <i class="material-icons">search</i>
+                        </span>
+                    </div>
+                </mat-toolbar-row>
+                <mat-toolbar-row *ngIf="!mobileQuery.matches">
+                    <img src='/assets/images/logo.png' class="logo">
+                    <nav>
+                        <ul>
+                            <li *ngFor="let navItem of navItems">
+                                <a [routerLink]="navItem.path">
+                                    <span>{{navItem.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
     </div>
 </header>
